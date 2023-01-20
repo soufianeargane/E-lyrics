@@ -29,8 +29,6 @@ if (count($_POST) > 0) {
     } elseif ($_POST['action'] == 'delete') {
         $id = $_POST['id'];
         $result = $user->deleteData($id);
-        // $info['data'] = 'update';
-        // echo json_encode($info);
         echo json_encode($info);
     } elseif ($_POST['action'] == 'edit') {
         $id = $_POST['id'];
@@ -38,10 +36,6 @@ if (count($_POST) > 0) {
         $result = $result->fetchAll(PDO::FETCH_ASSOC);
         $result = $result[0];
         $info['data'] = $result;
-        // echo "<pre>";
-        // print_r($info);
-        // echo "</pre>";
-        // die();
         echo json_encode($info);
     } elseif ($_POST['action'] == 'update') {
         $id = $_POST['id'];

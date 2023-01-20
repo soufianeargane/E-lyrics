@@ -15,10 +15,44 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <title>lyrics dashbord</title>
+
+    <style>
+        .color__gradient {
+            background: linear-gradient(90deg, rgba(113, 177, 231, 1) 22%, rgba(178, 94, 235, 1) 73%);
+        }
+
+        .second__color {
+            background-color: #212529 !important;
+            color: white;
+        }
+
+        .nav-link {
+            color: #fff !important;
+        }
+
+        .tr-height {
+            max-height: 55px !important;
+            overflow-y: hidden;
+        }
+
+        .button__app {
+            padding: 8px 25px;
+            border-radius: 20px;
+            background-color: #212529 !important;
+            color: white;
+            border: none;
+        }
+
+        @media(max-width: 768px) {
+            .no-pp {
+                padding-right: 0;
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <div class="d-flex">
+<body class="">
+    <div class="d-flex ">
         <div class="container-fluid">
             <div class="row flex-nowrap">
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
@@ -45,30 +79,33 @@ if (!isset($_SESSION['id'])) {
                         </ul>
                     </div>
                 </div>
-                <div class="col py-3">
-                    <div class="w-100">
-                        <div class="table-responsive ">
-                            <div class="d-flex justify-content-evenly align-items-center">
-                                <div class="">
-                                    <button id="add_button" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        add
-                                    </button>
-                                </div>
-                                <div>
-                                    <input type="text" id="search" class="form-control" onkeyup="tableSearch()" placeholder="search by song name">
-                                </div>
-                                <!-- Example single danger button -->
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Sort
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><button id="sort-name" class="dropdown-item">Singer name</button></li>
-                                        <li><button id="sort-song" class="dropdown-item">Song name</button></li>
-                                    </ul>
-                                </div>
+                <div class="col py-3 no-pp">
+                    <div class="d-flex justify-content-between flex-wrap align-items-center">
+                        <div class="">
+                            <button id="add_button" type="button" class="button__app" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="bi bi-plus-circle"></i>
+                                Add
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <input type="text" id="search" class="form-control" onkeyup="tableSearch()" placeholder="search by song name">
                             </div>
-                            <table id="table" class="mt-2 table table-striped table-hover">
+                            <!-- Example single danger button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Sort
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><button id="sort-name" class="dropdown-item">Singer name</button></li>
+                                    <li><button id="sort-song" class="dropdown-item">Song name</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100">
+                        <div class="table-responsive px-2">
+                            <table id="table" class="mt-2 table second__color">
                                 <thead>
                                     <tr>
                                         <th>id</th>

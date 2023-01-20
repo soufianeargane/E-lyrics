@@ -164,7 +164,7 @@ function displayData(data2) {
     let tbody = document.querySelector(".js-table-body");
     let str = "";
     for (let i = 0; i < data2.data.length; i++) {
-        str += `<tr>
+        str += `<tr class="tr-height">
                     <td>${data2.data[i]["id"]}</td>
                     <td>${data2.data[i]["singer"]}</td>
                     <td>${data2.data[i]["song"]}</td>

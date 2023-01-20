@@ -10,25 +10,33 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/login.css">
     <title>login</title>
 </head>
 
 <body>
-    <form style="width: 500px;" class="mx-auto mt-5" action="logincheck.php" method="post">
-        <div>
-            <input class="form-control" type="text" name="email" placeholder="email">
+    <div class="father__app ">
+        <div class="img__app">
+            <img src="./img/songPhone.jpg" alt="">
         </div>
-        <div>
-            <input class="form-control" type="password" name="password" placeholder="password">
+        <div class="form__app">
+            <form class="" action="logincheck.php" method="post">
+                <div>
+                    <input class="" type="text" name="email" placeholder="email">
+                </div>
+                <div>
+                    <input class="" type="password" name="password" placeholder="password">
+                </div>
+                <button class="" type="submit" name="login">Login</button>
+            </form>
+            <?php if (isset($_SESSION['error'])) : ?>
+                <div style="width: 500px;" class="alert alert-danger mx-auto mt-5 w-100" role="alert">
+                    <?php echo $_SESSION['error'] ?>
+                    <?php unset($_SESSION['error']) ?>
+                </div>
+            <?php endif ?>
         </div>
-        <button class="btn btn-primary" type="submit" name="login">Login</button>
-    </form>
-    <?php if (isset($_SESSION['error'])) : ?>
-        <div style="width: 500px;" class="alert alert-danger mx-auto mt-5" role="alert">
-            <?php echo $_SESSION['error'] ?>
-            <?php unset($_SESSION['error']) ?>
-        </div>
-    <?php endif ?>
+    </div>
 </body>
 
 </html>
