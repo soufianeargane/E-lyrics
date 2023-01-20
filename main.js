@@ -173,9 +173,11 @@ function displayData(data2) {
                             <button class="btn btn-success">Lyrics</button>
                         </a>
                     </td>
-                    <td class="d-flex">
-                        <button onclick="getId(this)" class="btn btn-danger me-2">delete</button>
-                        <button onclick = "edit(this)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal1" >Edit</button>
+                    <td>
+                        <div class="d-flex">
+                            <button onclick="getId(this)" class="btn btn-danger me-2">delete</button>
+                            <button onclick = "edit(this)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal1" >Edit</button>
+                        </div>
                     </td>
                 
                 `;
