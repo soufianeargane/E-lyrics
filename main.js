@@ -187,7 +187,7 @@ function displayData(data2) {
 
 // work on delete
 function getId(btn) {
-    let id = btn.parentNode.parentNode.children[0].innerText;
+    let id = btn.parentNode.parentNode.parentNode.children[0].innerText;
     // set in object
     let data = {};
     let all = [];
@@ -200,7 +200,7 @@ function getId(btn) {
 
 //show data in modal
 function edit(btn) {
-    let id = btn.parentNode.parentNode.children[0].innerText;
+    let id = btn.parentNode.parentNode.parentNode.children[0].innerText;
     // set in object
     let data = {};
     let all = [];
