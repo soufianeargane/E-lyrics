@@ -17,10 +17,6 @@ if (!isset($_SESSION['id'])) {
     <title>lyrics dashbord</title>
 
     <style>
-        .color__gradient {
-            background: linear-gradient(90deg, rgba(113, 177, 231, 1) 22%, rgba(178, 94, 235, 1) 73%);
-        }
-
         .second__color {
             background-color: #212529 !important;
             color: white;
