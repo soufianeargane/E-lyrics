@@ -39,6 +39,18 @@ if (!isset($_SESSION['id'])) {
             border: none;
         }
 
+        .input__model {
+            background-color: black;
+            border: none;
+            color: white;
+        }
+
+        .input__model:focus {
+            background-color: black;
+            border: 2px solid #212529;
+            color: white;
+        }
+
         @media(max-width: 768px) {
             .no-pp {
                 padding-right: 0;
@@ -117,11 +129,11 @@ if (!isset($_SESSION['id'])) {
                             </table>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
-                                <div class="modal-content">
+                                <div class="modal-content bg-dark">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title text-white" id="exampleModalLabel">Add Song </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -132,7 +144,7 @@ if (!isset($_SESSION['id'])) {
                                             <i class="bi bi-trash-fill"></i>
                                         </button>
                                         <div class="body">
-                                            <form action="" id="form">
+                                            <form action="" class="mt-2" id="form">
 
                                             </form>
                                         </div>

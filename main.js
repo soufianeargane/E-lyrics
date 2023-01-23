@@ -8,12 +8,16 @@ const update = document.getElementById("update");
 
 var id_to_update;
 
+// array of colors bootstrap
+let colors = [1, "bg-success", "bg-info", "bg-secondary", "bg-danger"];
+
 let index = 1;
 // call addInput() function when add add_inputs is clicked
 function addInput(index) {
     // create the div holding the data
     let div = document.createElement("div");
-    div.className = " p-2";
+    div.className = "mb-3 p-1 rounded " + colors[index];
+    colors.push(colors[index]);
     div.id = "father_" + index;
     form.appendChild(div);
     // Create a new input element
@@ -21,7 +25,7 @@ function addInput(index) {
     input.type = "text";
     input.name = "singer_" + index;
     input.id = "singer_" + index;
-    input.className = "form-control mb-2";
+    input.className = "form-control mb-1 input__model";
     input.placeholder = "Enter the singer name";
     div.appendChild(input);
 
@@ -30,7 +34,7 @@ function addInput(index) {
     input2.type = "text";
     input2.name = "song_" + index;
     input2.id = "song_" + index;
-    input2.className = "form-control mb-2";
+    input2.className = "form-control mb-1 input__model";
     input2.placeholder = "Enter the song name";
     div.appendChild(input2);
     // Create a new input element
@@ -38,7 +42,7 @@ function addInput(index) {
     input3.type = "text";
     input3.name = "lyrics_" + index;
     input3.id = "lyrics_" + index;
-    input3.className = "form-control mb-2";
+    input3.className = "form-control input__model";
     input3.placeholder = "Enter the song lyrics";
     div.appendChild(input3);
     index++;
@@ -53,6 +57,7 @@ add_button.addEventListener("click", function () {
 add_inputs.addEventListener("click", function () {
     index++;
     addInput(index);
+    console.log("messi");
 });
 
 function removeInputs() {
@@ -62,24 +67,32 @@ function removeInputs() {
 }
 
 remove_inputs.addEventListener("click", function () {
-    removeInputs();
+    if (index > 1) {
+        console.log(index);
+        removeInputs();
+    }
 });
 
 // get data from form after submit
 submit.addEventListener("click", function () {
-    let data = {};
-    let all = [];
-    for (let i = 1; i <= index; i++) {
-        data["singer_" + i] = document.getElementById("singer_" + i).value;
-        data["song_" + i] = document.getElementById("song_" + i).value;
-        data["lyrics_" + i] = document.getElementById("lyrics_" + i).value;
-        all.push(data);
+    let check = validateForm();
+    if (check == true) {
+        let data = [];
+        for (let index = 1; index <= 1; index++) {
+            let singer = document.getElementById("singer_" + index).value;
+            let song = document.getElementById("song_" + index).value;
+            let lyrics = document.getElementById("lyrics_" + index).value;
+            data.push({
+                singer: singer,
+                song: song,
+                lyrics: lyrics,
+            });
+        }
+        console.log(data);
+        handleData(data, "save");
+    } else {
+        alert("waaaa waaaa");
     }
-    console.log(all);
-    // sendData(all);
-    handleData(all, "save");
-    form.reset();
-    form.innerHTML = "";
     // index = 1;
 });
 
@@ -285,3 +298,16 @@ sort_by_song_button.addEventListener("click", function () {
 });
 
 // api fetch data
+
+// validate form
+function validateForm() {
+    console.log("validate");
+    let singer = document.getElementById("singer_1").value;
+    // let song = document.getElementById("song").value;
+    // let lyrics = document.getElementById("lyrics").value;
+    if (singer == "") {
+        return false;
+    } else {
+        return true;
+    }
+}
