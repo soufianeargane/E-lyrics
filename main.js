@@ -75,24 +75,19 @@ remove_inputs.addEventListener("click", function () {
 
 // get data from form after submit
 submit.addEventListener("click", function () {
-    let check = validateForm();
-    if (check == true) {
-        let data = [];
-        for (let index = 1; index <= 1; index++) {
-            let singer = document.getElementById("singer_" + index).value;
-            let song = document.getElementById("song_" + index).value;
-            let lyrics = document.getElementById("lyrics_" + index).value;
-            data.push({
-                singer: singer,
-                song: song,
-                lyrics: lyrics,
-            });
-        }
-        console.log(data);
-        handleData(data, "save");
-    } else {
-        alert("waaaa waaaa");
+    let data = {};
+    let all = [];
+    for (let i = 1; i <= index; i++) {
+        data["singer_" + i] = document.getElementById("singer_" + i).value;
+        data["song_" + i] = document.getElementById("song_" + i).value;
+        data["lyrics_" + i] = document.getElementById("lyrics_" + i).value;
+        all.push(data);
     }
+    console.log(all);
+    // sendData(all);
+    handleData(all, "save");
+    form.reset();
+    form.innerHTML = "";
     // index = 1;
 });
 
@@ -300,14 +295,3 @@ sort_by_song_button.addEventListener("click", function () {
 // api fetch data
 
 // validate form
-function validateForm() {
-    console.log("validate");
-    let singer = document.getElementById("singer_1").value;
-    // let song = document.getElementById("song").value;
-    // let lyrics = document.getElementById("lyrics").value;
-    if (singer == "") {
-        return false;
-    } else {
-        return true;
-    }
-}

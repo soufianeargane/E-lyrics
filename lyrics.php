@@ -4,9 +4,7 @@ include_once './classes/songClass.php';
 $song = new Song();
 $result = $song->getSingleData($_GET['id']);
 $lyrics = $result = $result->fetchAll(PDO::FETCH_ASSOC);
-// echo '<pre>';
-// print_r($lyrics);
-// echo '</pre>';
+
 $lyrics = $lyrics[0]['lyrics'];
 
 
