@@ -91,20 +91,6 @@ submit.addEventListener("click", function () {
     // index = 1;
 });
 
-// function sendData(data){
-//     // send data to the server
-//     let xhr = new XMLHttpRequest();
-//     xhr.onreadystatechange = function() {
-
-//             console.log(this.responseText);
-
-//     }
-//     let r=JSON.stringify(data)
-//     xhr.open("GET", "crud.php?r="+r, true);
-
-//     xhr.send();
-// }
-
 function handleData(data, type) {
     var form = new FormData();
     // console.log(data);

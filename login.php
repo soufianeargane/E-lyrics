@@ -20,23 +20,29 @@ session_start();
             <img src="./img/songPhone.jpg" alt="">
         </div>
         <div class="form__app">
-            <form class="" action="logincheck.php" method="post">
+            <form onsubmit="return validateForm()" id="login-form" class="" action="logincheck.php" method="post">
                 <div>
-                    <input class="" type="text" name="email" placeholder="email">
+                    <input class="" id="email" type="text" name="email" placeholder="email">
+                    <div id="email-error"></div>
                 </div>
                 <div>
-                    <input class="" type="password" name="password" placeholder="password">
+                    <input class="" id="password" type="password" name="password" placeholder="password">
+                    <div id="password-error"></div>
                 </div>
                 <button class="" type="submit" name="login">Login</button>
             </form>
             <?php if (isset($_SESSION['error'])) : ?>
-                <div style="width: 500px;" class="alert alert-danger mx-auto mt-5 w-100" role="alert">
+                <div style="width: 500px;" class="alert alert-danger mx-auto mt-2 w-100" role="alert">
                     <?php echo $_SESSION['error'] ?>
                     <?php unset($_SESSION['error']) ?>
                 </div>
             <?php endif ?>
         </div>
     </div>
+
+    <!-- js -->
+    <script src="./login.js"></script>
 </body>
+
 
 </html>
