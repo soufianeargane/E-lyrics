@@ -60,17 +60,37 @@ body{
 
 .father__app button{
     width: 100%;
-    font-size: 20px;
+    font-size: 15px;
     border: none;
     outline: none;
-    padding: 10px;
+    padding: 5px;
     border-radius: 15px;
     margin: 10px 0;
     color: #fff;
     background: linear-gradient(90deg, rgba(178,94,235,1) 22%, rgba(113,177,231,1) 73%);
     cursor: pointer;
+    transition: 0.5s;
+}
+.father__app button:hover{
+    
+    background: linear-gradient(90deg, rgb(116, 73, 145) 22%, rgb(90, 126, 155) 73%);
+    font-size: 22px;
 }
 
+
 @media(max-width: 767px){
+    .img__app{
+        display: none;
+    }
+    .father__app{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .form__app{
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 80px;
+        padding: 20px;
     
+    }
 }
