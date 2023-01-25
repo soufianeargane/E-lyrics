@@ -1,13 +1,3 @@
-// document.getElementById("login-form").onsubmit = function (e) {
-//     // event.preventDefault();
-//     var email = document.getElementById("email").value;
-//     var password = document.getElementById("password").value;
-//     if (email == "") {
-//         alert("Email is required");
-//         e.preventDefault();
-//     }
-// };
-
 console.log("sss");
 
 function validateForm() {
@@ -36,15 +26,3 @@ function validateForm() {
     }
     return true;
 }
-
-// return false;
-// } else if (email.value.matvh(reg_exp)) {
-//     console.log("Invalid email address");
-//     return false;
-// } else {
-//     return true;
-// }
-// let reg_exp = /^[^ ]+@[a-z]+\.[a-z]{2,3}$/;
-//             if (email.value.match(reg_exp)) {
-//                 email_valid = true
-//             }

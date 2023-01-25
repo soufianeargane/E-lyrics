@@ -3,6 +3,14 @@ include_once 'classes/songClass.php';
 
 $user = new Song();
 
+function sanitize($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 if (count($_POST) > 0) {
     # code...
     $info = [];
@@ -18,11 +26,11 @@ if (count($_POST) > 0) {
         for ($i = 0; $i < (sizeof($_POST) - 1) / 3; $i++) {
             # code... 
             $alias_singer = "singer_" . ($i + 1);
-            $singer = $_POST[$alias_singer];
+            $singer = sanitize($_POST[$alias_singer]);
             $alias_song = "song_" . ($i + 1);
-            $song = $_POST[$alias_song];
+            $song = sanitize($_POST[$alias_song]);
             $alias_lyrics = "lyrics_" . ($i + 1);
-            $lyrics = $_POST[$alias_lyrics];
+            $lyrics = sanitize($_POST[$alias_lyrics]);
             $result = $user->inserData($singer, $song, $lyrics);
         }
         echo json_encode($info);
@@ -39,9 +47,9 @@ if (count($_POST) > 0) {
         echo json_encode($info);
     } elseif ($_POST['action'] == 'update') {
         $id = $_POST['id'];
-        $singer = $_POST['singer'];
-        $song = $_POST['song'];
-        $lyrics = $_POST['lyrics'];
+        $singer = sanitize($_POST['singer']);
+        $song = sanitize($_POST['song']);
+        $lyrics = sanitize($_POST['lyrics']);
         $result = $user->updateData($id, $singer, $song, $lyrics);
         echo json_encode($info);
     } elseif ($_POST['action'] == 'sortbysinger' || $_POST['action'] == 'sortbysong') {

@@ -144,6 +144,9 @@ if (!isset($_SESSION['id'])) {
                                             <i class="bi bi-trash-fill"></i>
                                         </button>
                                         <div class="body">
+                                            <div id="alert__" class=" alert-danger mt-2" role="alert">
+
+                                            </div>
                                             <form action="" class="mt-2" id="form">
 
                                             </form>
@@ -151,7 +154,7 @@ if (!isset($_SESSION['id'])) {
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" id="submit" data-bs-dismiss="modal" class="btn btn-primary">Save</button>
+                                        <button type="button" id="submit" class="btn btn-primary">Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -202,6 +205,7 @@ if (!isset($_SESSION['id'])) {
     <!-- js -->
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 </body>

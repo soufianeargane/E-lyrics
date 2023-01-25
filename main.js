@@ -50,6 +50,7 @@ function addInput(index) {
 
 add_button.addEventListener("click", function () {
     form.innerHTML = "";
+    document.getElementById("alert__").innerHTML = "";
     index = 1;
     addInput(index);
 });
@@ -57,7 +58,6 @@ add_button.addEventListener("click", function () {
 add_inputs.addEventListener("click", function () {
     index++;
     addInput(index);
-    console.log("messi");
 });
 
 function removeInputs() {
@@ -68,7 +68,6 @@ function removeInputs() {
 
 remove_inputs.addEventListener("click", function () {
     if (index > 1) {
-        console.log(index);
         removeInputs();
     }
 });
@@ -78,16 +77,51 @@ submit.addEventListener("click", function () {
     let data = {};
     let all = [];
     for (let i = 1; i <= index; i++) {
+        // get the singer name and check if it's empty
         data["singer_" + i] = document.getElementById("singer_" + i).value;
+        if (data["singer_" + i] == "") {
+            // alert("Please enter the singer name");
+            document.getElementById("singer_" + i).focus();
+            document.getElementById("singer_" + i).style.borderColor = "red";
+            document.getElementById("alert__").innerHTML =
+                "* Please enter the singer name";
+            return;
+        } else {
+            document.getElementById("singer_" + i).style.borderColor = "green";
+            document.getElementById("alert__").innerHTML = "";
+        }
+        // get the song name and check if it's empty
         data["song_" + i] = document.getElementById("song_" + i).value;
+        if (data["song_" + i] == "") {
+            document.getElementById("song_" + i).focus();
+            document.getElementById("song_" + i).style.borderColor = "red";
+            document.getElementById("alert__").innerHTML =
+                "* Please enter the song name";
+            return;
+        } else {
+            document.getElementById("song_" + i).style.borderColor = "green";
+            document.getElementById("alert__").innerHTML = "";
+        }
+        // get the song lyrics and check if it's empty
         data["lyrics_" + i] = document.getElementById("lyrics_" + i).value;
+        if (data["lyrics_" + i] == "") {
+            document.getElementById("lyrics_" + i).focus();
+            document.getElementById("lyrics_" + i).style.border = "red";
+            document.getElementById("alert__").innerHTML =
+                "* Please enter the song lyrics";
+            return;
+        } else {
+            document.getElementById("lyrics_" + i).style.borderColor = "green";
+            document.getElementById("alert__").innerHTML = "";
+        }
         all.push(data);
     }
-    console.log(all);
-    // sendData(all);
+    // console.log(all);
     handleData(all, "save");
-    form.reset();
-    form.innerHTML = "";
+    // hide modal
+    $("#exampleModal").modal("hide");
+    // form.reset();
+    // form.innerHTML = "";
     // index = 1;
 });
 
@@ -128,11 +162,8 @@ function getData(data) {
         //get length of data
         displayData(data2);
     } else if (data2["action"] == "save") {
-        console.log("succsess");
         handleData({}, "read");
     } else if (data2["action"] == "delete") {
-        console.log("deleted");
-        console.log(data2);
         handleData({}, "read");
     } else if (data2["action"] == "edit") {
         // console.log('edit');
@@ -140,7 +171,6 @@ function getData(data) {
         showData(data2);
         // handleData({},'read');
     } else if (data2["action"] == "update") {
-        console.log(data2);
         handleData({}, "read");
     } else if (
         data2["action"] == "sortbysinger" ||
@@ -154,7 +184,6 @@ handleData({}, "read");
 
 // display data
 function displayData(data2) {
-    console.log(data2.data.length);
     let tbody = document.querySelector(".js-table-body");
     let str = "";
     for (let i = 0; i < data2.data.length; i++) {
@@ -188,7 +217,6 @@ function getId(btn) {
     data["id"] = id;
     all.push(data);
 
-    console.log(all.length);
     handleData(all, "delete");
 }
 
@@ -207,9 +235,6 @@ function edit(btn) {
 
 // show data in modal
 function showData(data) {
-    // empty form
-    // form.innerHTML = "";
-    // addInput(1);
     let singer = data.data["singer"];
     let song = data.data["song"];
     let lyrics = data.data["lyrics"];
@@ -227,8 +252,11 @@ update.addEventListener("click", function () {
     data["song"] = document.getElementById("song_update").value;
     data["lyrics"] = document.getElementById("lyrics_update").value;
     data["id"] = id_to_update;
+    if (data["singer"] == "" || data["song"] == "" || data["lyrics"] == "") {
+        alert("Please fill all the fields");
+        return;
+    }
     all.push(data);
-    console.log(all);
     handleData(all, "update");
 });
 
@@ -259,7 +287,6 @@ sort_by_singer_button = document.getElementById("sort-name");
 sort_by_song_button = document.getElementById("sort-song");
 
 sort_by_singer_button.addEventListener("click", function () {
-    console.log("sort");
     let data = {};
     let all = [];
     // data["action"] = "sort";
@@ -269,7 +296,6 @@ sort_by_singer_button.addEventListener("click", function () {
 });
 
 sort_by_song_button.addEventListener("click", function () {
-    console.log("sort");
     let data = {};
     let all = [];
 
