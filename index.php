@@ -112,7 +112,7 @@ if (!isset($_SESSION['id'])) {
                         </div>
                     </div>
                     <div class="w-100">
-                        <div class="table-responsive px-2">
+                        <div class="table-responsive">
                             <table id="table" class="mt-2 table second__color">
                                 <thead>
                                     <tr>

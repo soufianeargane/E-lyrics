@@ -43,8 +43,6 @@ if (count($_POST) > 0) {
         $song = $_POST['song'];
         $lyrics = $_POST['lyrics'];
         $result = $user->updateData($id, $singer, $song, $lyrics);
-        // $info['data'] = 'update';
-        // echo json_encode($info);
         echo json_encode($info);
     } elseif ($_POST['action'] == 'sortbysinger' || $_POST['action'] == 'sortbysong') {
         $order = $_POST['order'];
